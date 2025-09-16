@@ -13,8 +13,8 @@ public class Cliente {
     private Long idCliente;
 
     private String nombre;
-    private String identificacion;
-    private String telefono;
+    private int identificacion;
+    private int telefono;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Reserva> reservas;
@@ -36,19 +36,19 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public String getIdentificacion() {
+    public int getIdentificacion() {
         return identificacion;
     }
 
-    public void setIdentificacion(String identificacion) {
+    public void setIdentificacion(int identificacion) {
         this.identificacion = identificacion;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
