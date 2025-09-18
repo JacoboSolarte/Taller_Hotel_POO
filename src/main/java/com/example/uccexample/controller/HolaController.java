@@ -3,25 +3,30 @@ package com.example.uccexample.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.uccexample.infraestructure.crud.ClienteCrud;
-import com.example.uccexample.model.Cliente;
+import com.example.uccexample.domain.dto.ClientDTO;
+import com.example.uccexample.infraestructure.repository.ClienteRepository;
 
 @RestController
 
 public class HolaController {
 
-    private ClienteCrud clienteCrud;
-
-    public HolaController(ClienteCrud clienteCrud) {
-        this.clienteCrud = clienteCrud;
-    }
+    @Autowired
+    public ClienteRepository clienteRepository;
 
     @GetMapping("/")
-    public List<Cliente> getAll() {
-        return (List<Cliente>) this.clienteCrud.findAll();
+    public List<ClientDTO> getAll() {
+        return clienteRepository.getAll();
+    }
+
+    @PostMapping()
+    public ClientDTO save(@RequestBody ClientDTO clientDto) {
+        return clienteRepository.save(clientDto);
     }
     
 }

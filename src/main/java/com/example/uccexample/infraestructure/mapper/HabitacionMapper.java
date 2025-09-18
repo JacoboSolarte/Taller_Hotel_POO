@@ -1,7 +1,8 @@
 package com.example.uccexample.infraestructure.mapper;
 
 import com.example.uccexample.domain.dto.RoomDTO;
-import com.example.uccexample.model.Habitacion;
+import com.example.uccexample.infraestructure.model.Habitacion;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -15,7 +16,6 @@ public interface HabitacionMapper {
     @Mapping(source = "disponible", target = "available")
     RoomDTO toRoomDTO(Habitacion habitacion);
 
-    // DTO -> Entidad
     @Mapping(source = "number", target = "numero")
     @Mapping(source = "type", target = "tipo")
     @Mapping(source = "price", target = "precio")

@@ -1,7 +1,8 @@
 package com.example.uccexample.infraestructure.mapper;
 
 import com.example.uccexample.domain.dto.ReservationDTO;
-import com.example.uccexample.model.Reserva;
+import com.example.uccexample.infraestructure.model.Reserva;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -9,6 +10,7 @@ import org.mapstruct.Mapping;
 (componentModel = "spring", uses = {ClienteMapper.class, HabitacionMapper.class})
 public interface ReservaMapper {
 
+    
     // Entidad -> DTO
     @Mapping(source = "fechaInicio", target = "startDate")
     @Mapping(source = "fechaFin", target = "endDate")

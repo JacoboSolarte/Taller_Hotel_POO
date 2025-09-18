@@ -1,4 +1,4 @@
-package com.example.uccexample.model;
+package com.example.uccexample.infraestructure.model;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
