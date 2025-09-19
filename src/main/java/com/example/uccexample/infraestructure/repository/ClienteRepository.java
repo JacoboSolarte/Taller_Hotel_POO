@@ -43,6 +43,6 @@ public class ClienteRepository implements IClientRepository {
     @Override
     public ClientDTO findById(Long id) {
         Optional<Cliente> cliente = clienteCrud.findById(id);
-        return clienteMapper.toClientDTO(cliente);
+        return cliente.map(c -> clienteMapper.toClientDTO(c)).orElse(null);
     }
 }
