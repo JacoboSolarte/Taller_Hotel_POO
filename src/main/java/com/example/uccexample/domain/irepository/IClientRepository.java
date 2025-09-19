@@ -8,5 +8,6 @@ public interface  IClientRepository {
 
     List<ClientDTO> getAll();
     ClientDTO save(ClientDTO clientDto);
-    
+    void delete(ClientDTO clientDto);
+    ClientDTO findById(Long id);
 }

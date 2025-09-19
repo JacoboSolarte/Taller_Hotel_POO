@@ -1,6 +1,7 @@
 package com.example.uccexample.infraestructure.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -31,5 +32,17 @@ public class ClienteRepository implements IClientRepository {
     public ClientDTO save(ClientDTO clientDto) {
         Cliente cliente = clienteMapper.toCliente(clientDto);
         return clienteMapper.toClientDTO(clienteCrud.save(cliente));
+    }
+
+    @Override
+    public void delete(ClientDTO clientDto) {
+        Cliente cliente = clienteMapper.toCliente(clientDto);
+        clienteCrud.delete(cliente);
+    }
+
+    @Override
+    public ClientDTO findById(Long id) {
+        Optional<Cliente> cliente = clienteCrud.findById(id);
+        return clienteMapper.toClientDTO(cliente);
     }
 }

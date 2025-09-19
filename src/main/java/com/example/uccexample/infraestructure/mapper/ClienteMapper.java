@@ -16,17 +16,21 @@ public interface ClienteMapper {
     @Mapping(source = "nombre", target = "name")
     @Mapping(source = "identificacion", target = "identification")
     @Mapping(source = "telefono", target = "phone")
+    @Mapping(source = "idCliente", target = "id")
     ClientDTO toClientDTO(Cliente cliente);
 
     @Mapping(source = "nombre", target = "name")
     @Mapping(source = "identificacion", target = "identification")
     @Mapping(source = "telefono", target = "phone")
+    @Mapping(source = "idCliente", target = "id")
     List<ClientDTO> toClientDTOs(List<Cliente> clientes);
 
     // DTO -> Entidad
     @Mapping(source = "name", target = "nombre")
     @Mapping(source = "identification", target = "identificacion")
     @Mapping(source = "phone", target = "telefono")
+    @Mapping(source = "id", target = "idCliente")
+    @Mapping( target = "reservas", ignore = true)
     Cliente toCliente(ClientDTO clientDTO);
     List<Cliente> toClientes(List<ClientDTO> clientDTOs);
 }
