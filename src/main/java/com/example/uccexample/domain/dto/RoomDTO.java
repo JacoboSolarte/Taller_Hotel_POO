@@ -6,6 +6,7 @@ public class RoomDTO {
     private String type; 
     private double price;
     private boolean available;
+    private Long idRoom;
 
     public int getNumber() {
         return number;
@@ -33,5 +34,13 @@ public class RoomDTO {
     }
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public Long getIdRoom() {
+        return idRoom;
+    }
+
+    public void setIdRoom(Long idRoom) {
+        this.idRoom = idRoom;
     }
 }

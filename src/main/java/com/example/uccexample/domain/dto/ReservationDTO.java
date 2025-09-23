@@ -6,6 +6,7 @@ public class ReservationDTO {
     private String endDate;
     private ClientDTO client;
     private RoomDTO room;
+    private Long idReservation;
     
 
     public String getStartDate() {
@@ -35,4 +36,14 @@ public class ReservationDTO {
     public void setRoom(RoomDTO room) {
         this.room = room;
     }
+
+    public Long getIdReservation() {
+        return idReservation;
+    }
+
+    public void setIdReservation(Long idReservation) {
+        this.idReservation = idReservation;
+    }
+
+
 }

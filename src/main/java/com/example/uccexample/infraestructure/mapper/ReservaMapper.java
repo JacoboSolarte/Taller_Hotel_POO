@@ -1,5 +1,7 @@
 package com.example.uccexample.infraestructure.mapper;
 
+import java.util.List;
+
 import com.example.uccexample.domain.dto.ReservationDTO;
 import com.example.uccexample.infraestructure.model.Reserva;
 
@@ -12,13 +14,22 @@ public interface ReservaMapper {
 
     
     // Entidad -> DTO
+    @Mapping(source = "idReserva", target = "idReservation")
     @Mapping(source = "fechaInicio", target = "startDate")
     @Mapping(source = "fechaFin", target = "endDate")
     @Mapping(source = "cliente", target = "client")
     @Mapping(source = "habitacion", target = "room")
     ReservationDTO toReservationDTO(Reserva reserva);
 
+    @Mapping(source = "idReserva", target = "idReservation")
+    @Mapping(source = "fechaInicio", target = "startDate")
+    @Mapping(source = "fechaFin", target = "endDate")
+    @Mapping(source = "cliente", target = "client")
+    @Mapping(source = "habitacion", target = "room")
+    List<ReservationDTO> toReservationDTOs(java.util.List<Reserva> reservas);
+
     // DTO -> Entidad
+    @Mapping(source = "idReservation", target = "idReserva")
     @Mapping(source = "startDate", target = "fechaInicio")
     @Mapping(source = "endDate", target = "fechaFin")
     @Mapping(source = "client", target = "cliente")
