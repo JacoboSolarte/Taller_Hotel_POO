@@ -12,34 +12,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.uccexample.domain.dto.ClientDTO;
-import com.example.uccexample.infraestructure.repository.ClienteRepository;
+import com.example.uccexample.domain.service.ClientService;
 
 @RestController
 
 public class HolaController {
 
     @Autowired
-    public ClienteRepository clienteRepository;
+    public ClientService clientService;
 
     @GetMapping("/")
     public List<ClientDTO> getAll() {
-        return clienteRepository.getAll();
+        return clientService.getAll();
     }
 
     @GetMapping("/{id}")
     public ClientDTO FindById(@PathVariable Long id) {
-        return clienteRepository.findById(id);
+        return clientService.findById(id);
     }
 
     @PostMapping("/")
     public ClientDTO save(@RequestBody ClientDTO clientDto) {
-        return clienteRepository.save(clientDto);
+        return clientService.save(clientDto);
     }
 
     @DeleteMapping("/")
     public void delete(@RequestBody ClientDTO clientDto) {
-         clienteRepository.delete(clientDto);
+         clientService.delete(clientDto);
     }
-    
-    
 }
